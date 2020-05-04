@@ -1,68 +1,34 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<h1 align="center">
+	<img src="https://user-images.githubusercontent.com/6284140/80945246-58ec3d00-8e26-11ea-8195-c4dfbf48bf6b.png" alt="logo" width="150" align="center">
+    <br>
+    <br>
+    공플래너
+</h1>
 
-## Available Scripts
+<h4 align="center">공시생을 위한 공부기록관리 웹어플리케이션</h4>
 
-In the project directory, you can run:
+**<p align="center">[웹사이트]([https://gong-planner.web.app/](https://gong-planner.web.app/)) | [이슈 등록]([https://github.com/GongPlanner/gong-planner/issues/new](https://github.com/GongPlanner/gong-planner/issues/new))</p>**
 
-### `yarn start`
+<p align="center">
+	<img src="https://user-images.githubusercontent.com/6284140/80945557-052e2380-8e27-11ea-91f4-674ee927b74d.png" alt="website" width="500" align="center">
+</p>
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 특징(Key Features)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- 공부과목과 할일을 추가해 관리
+- 시간기록표에 과목별 시간을 입력하여 관리
+- 오늘의 한마디, 만족도, 디데이, 총 공부시간 작성 지원
 
-### `yarn test`
+## 기술스택(Credits)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [React]([https://ko.reactjs.org/](https://ko.reactjs.org/))
+- [Firebase]([https://firebase.google.com/?hl=ko](https://firebase.google.com/?hl=ko))
+- 기타 : [package.json]([https://github.com/GongPlanner/gong-planner/blob/9f844c776c9c56f4211de56206f16dbd89c3f7c9/package.json#L5](https://github.com/GongPlanner/gong-planner/blob/9f844c776c9c56f4211de56206f16dbd89c3f7c9/package.json#L5)) 참조
 
-### `yarn build`
+## 라이센스(License)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+MIT(예정)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+> GitHub @tkddn204 @HyeanWoo @yg1110
