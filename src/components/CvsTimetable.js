@@ -20,7 +20,7 @@ export default class CvsTimetable extends Component {
       ? null
       : this.props.subjects[_.keys(this.props.subjects)[0]].subjectName,
     modalStartDayjs: dayjs(),
-    modalEndDayjs: dayjs().add(1, 'hour'),
+    modalEndDayjs: dayjs(),
     timeTable: new TimeTable(this.props.timeTable),
   };
 
