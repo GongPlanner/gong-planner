@@ -17,7 +17,6 @@ import {
 } from '@material-ui/pickers';
 import DayjsUtils from '@date-io/dayjs';
 import ReactModal from 'react-modal';
-import { updateSubject } from '../../firebase/subjectFuntion';
 import {
   addTimeTable,
   updateTimeTable,
@@ -58,6 +57,11 @@ const TimetableModal = ({
     },
   };
 
+  const reRendering = (timeTable) => {
+    onSetSubjects(subjects);
+    onSetTimeTable(timeTable);
+  };
+
   const handleChangeName = (e) => setName(e.target.value);
   const handleChangeStartTime = (time) =>
     setTime((prev) => {
@@ -68,19 +72,6 @@ const TimetableModal = ({
       return { ...prev, end: time };
     });
   const handleCloseModal = () => handleModal(false);
-
-  const reRendering = (res) => {
-    // 색깔 넣어주기
-    const timeTable = _.map(res, (study) => {
-      const subObj = _.find(subjects, { subjectName: study.subject });
-      return {
-        ...study,
-        color: subObj ? subObj.subjectColor : 'black',
-      };
-    });
-    onSetTimeTable(timeTable);
-  };
-
   const handleRemove = async (e) => {
     e.preventDefault();
     const shortDate = date.format('YY.MM.DD');
@@ -94,22 +85,7 @@ const TimetableModal = ({
     handleCloseModal();
 
     const res = await deleteTimeTable(colName, shortDate, study);
-    if (res) {
-      // 과목 시간 삭제
-      const key = _.findKey(subjects, { subjectName: study.subject });
-      const beforeElapsedTime = subjects[key].totalElapsedTime || 0;
-      const betweenTime = +endDayjs.diff(startDayjs, 'second');
-      const totalElapsedTime = beforeElapsedTime - betweenTime;
-
-      subjects[key] = {
-        ...subjects[key],
-        totalElapsedTime,
-      };
-      updateSubject(colName, shortDate, 'EDIT_TIME', key, totalElapsedTime);
-      onSetSubjects(subjects);
-
-      reRendering(res);
-    }
+    if (res) reRendering(res);
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -137,26 +113,7 @@ const TimetableModal = ({
       };
       res = await updateTimeTable(colName, shortDate, originStudy, study);
     }
-    if (res) {
-      const key = _.findKey(subjects, { subjectName: study.subject });
-      const betweenTime = +time.end.diff(time.start, 'second');
-      let totalElapsedTime = subjects[key].totalElapsedTime || 0;
-      if (isAdd) {
-        // 과목 시간 추가
-        totalElapsedTime += betweenTime;
-      } else {
-        const originTime = +endDayjs.diff(startDayjs, 'second');
-        totalElapsedTime -= originTime - betweenTime;
-      }
-      subjects[key] = {
-        ...subjects[key],
-        totalElapsedTime,
-      };
-      updateSubject(colName, shortDate, 'EDIT_TIME', key, totalElapsedTime);
-      onSetSubjects(subjects);
-
-      reRendering(res);
-    }
+    if (res) reRendering(res);
   };
 
   let subjectNames = [];
